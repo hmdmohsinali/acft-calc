@@ -55,6 +55,12 @@ const AcftCalcc = () => {
   const handleNegativeCheck = (value, minValue) => {
     return value < minValue ? minValue : value;
   };
+  const handleSliderChange = (e) => {
+    const totalSeconds = 27 * 60 - Number(e.target.value);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    setRun({ minutes, seconds });
+  };
 
   return (
     <div className="bg-gray-200 p-4 rounded-lg max-w-md mx-auto">
@@ -246,52 +252,43 @@ const AcftCalcc = () => {
         </div>
       </div>
 
-      <div className="mb-4">
-        <label className="block font-medium">2 Mile Run (m:s)</label>
-        <input
-          type="range"
-          className="w-full h-6"
-          min="0"
-          max="14" // Difference between max (27) and min (13)
-          step="1"
-          value={27 - run.minutes} // Invert the range value
-          onChange={(e) => setRun({ ...run, minutes: 27 - Number(e.target.value) })}
-        />
-        <input
-          type="range"
-          className="w-full h-6 mt-2"
-          min="0"
-          max="59"
-          step="1"
-          value={run.seconds}
-          onChange={(e) => setRun({ ...run, seconds: Number(e.target.value) })}
-        />
-        <div className="flex justify-between mt-2">
-          <div>
-            <input
-              type="number"
-              className="w-16 p-2 border rounded"
-              value={run.minutes}
-              onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
-              min="13"
-              max="27"
-            />
-            <span>m</span>
-          </div>
-          <div>
-            <input
-              type="number"
-              className="w-16 p-2 border rounded"
-              value={run.seconds}
-              onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
-              min="0"
-              max="59"
-            />
-            <span>s</span>
-          </div>
-          <div>{runScore} points</div>
+       <div className="mb-4">
+      <label className="block font-medium">2 Mile Run (m:s)</label>
+      <input
+        type="range"
+        className="w-full h-6"
+        min="0"
+        max={(27 * 60) - (13 * 60 + 22)} // Difference in seconds between 27m 0s and 13m 22s
+        step="1"
+        value={27 * 60 - (run.minutes * 60 + run.seconds)} // Invert the range value
+        onChange={handleSliderChange}
+      />
+      <div className="flex justify-between mt-2">
+        <div>
+          <input
+            type="number"
+            className="w-16 p-2 border rounded"
+            value={run.minutes}
+            onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
+            min="13"
+            max="27"
+          />
+          <span>m</span>
         </div>
+        <div>
+          <input
+            type="number"
+            className="w-16 p-2 border rounded"
+            value={run.seconds}
+            onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
+            min="0"
+            max="59"
+          />
+          <span>s</span>
+        </div>
+        <div>{runScore} points</div>
       </div>
+    </div>
 
       <div className="font-bold mt-4">Total Score: {totalScore}</div>
       <div
