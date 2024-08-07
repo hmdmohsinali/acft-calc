@@ -5,6 +5,7 @@ import { getAgeGroup, calculateDeadliftScore, calculatePowerThrowScore, calculat
 const AcftCalcc = () => {
   const [gender, setGender] = useState("");
   const [age, setAge] = useState(17);
+  const [ageDisplay, setAgeDisplay] = useState("17");
   const [deadlift, setDeadlift] = useState(60);
   const [powerThrow, setPowerThrow] = useState(3.3);
   const [pushUps, setPushUps] = useState(0);
@@ -28,6 +29,20 @@ const AcftCalcc = () => {
     const meetsExemptionCriteria = total >= 540 && deadliftScore >= 80 && powerThrowScore >= 80 && pushUpsScore >= 80 && sprintDragCarryScore >= 80 && plankScore >= 80 && runScore >= 80;
     return { total, meetsMinimumStandard, meetsExemptionCriteria };
   };
+
+  const handleAgeChange = (value) => {
+    if (value === "" || value < 0) {
+      setAge(0);
+      setAgeDisplay("0");
+    } else {
+      setAge(Number(value));
+      setAgeDisplay(value);
+    }
+  };
+
+  useEffect(() => {
+    setAgeDisplay(String(age));
+  }, [age]);
   
 
   useEffect(() => {
@@ -36,6 +51,7 @@ const AcftCalcc = () => {
     setMeetsMinimumStandard(meetsMinimumStandard);
     setMeetsExemptionCriteria(meetsExemptionCriteria);
   }, [gender, age, deadlift, powerThrow, pushUps, sprintDragCarry, plank, run]);
+  
   const handleNegativeCheck = (value, minValue) => {
     return value < minValue ? minValue : value;
   };
@@ -58,15 +74,15 @@ const AcftCalcc = () => {
       </div>
 
       <div className="mb-4">
-        <label className="block font-medium">Age</label>
-        <input
-          type="number"
-          className="w-full p-2 border rounded"
-          value={age}
-          onChange={(e) => setAge(handleNegativeCheck(Number(e.target.value), 0))}
-          min="0"
-        />
-      </div>
+      <label className="block font-medium">Age</label>
+      <input
+        type="number"
+        className="w-full p-2 border rounded"
+        value={ageDisplay}
+        onChange={(e) => handleAgeChange(e.target.value)}
+        min="0"
+      />
+    </div>
 
       <div className="mb-4">
         <label className="block font-medium">Maximum Deadlift (lbs.)</label>
