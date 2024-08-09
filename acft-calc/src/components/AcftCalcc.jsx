@@ -63,13 +63,13 @@ const AcftCalcc = () => {
   };
 
   return (
-    <div className="bg-gray-200 p-4 rounded-lg max-w-md mx-auto">
-      <h2 className="text-lg font-bold mb-4 text-center">ACFT Score Calculator</h2>
-
-      <div className="mb-4">
+    <div className="bg-gray-200 p-2 rounded-lg max-w-md mx-auto">
+      <h2 className="text-lg font-bold mb-2 text-center">ACFT Score Calculator</h2>
+  
+      <div className="mb-2">
         <label className="block font-medium">Gender</label>
         <select
-          className="w-full p-2 border rounded"
+          className="w-full p-1 border rounded"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
@@ -78,23 +78,23 @@ const AcftCalcc = () => {
           <option value="female">Female</option>
         </select>
       </div>
-
-      <div className="mb-4">
-      <label className="block font-medium">Age</label>
-      <input
-        type="number"
-        className="w-full p-2 border rounded"
-        value={ageDisplay}
-        onChange={(e) => handleAgeChange(e.target.value)}
-        min="0"
-      />
-    </div>
-
-      <div className="mb-4">
+  
+      <div className="mb-2">
+        <label className="block font-medium">Age</label>
+        <input
+          type="number"
+          className="w-full p-1 border rounded"
+          value={ageDisplay}
+          onChange={(e) => handleAgeChange(e.target.value)}
+          min="0"
+        />
+      </div>
+  
+      <div className="mb-2">
         <label className="block font-medium">Maximum Deadlift (lbs.)</label>
         <input
           type="range"
-          className="w-full h-6"
+          className="w-full h-4"
           min="60"
           max="340"
           step="10"
@@ -103,23 +103,23 @@ const AcftCalcc = () => {
         />
         <input
           type="number"
-          className="w-full p-2 border rounded mt-2"
+          className="w-full p-1 border rounded mt-1"
           value={deadlift}
           onChange={(e) => setDeadlift(handleNegativeCheck(Number(e.target.value), 60))}
           min="60"
           max="340"
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           <div>{deadlift} lbs.</div>
           <div>{deadliftScore} points</div>
         </div>
       </div>
-
-      <div className="mb-4">
+  
+      <div className="mb-2">
         <label className="block font-medium">Standing Power Throw (m)</label>
         <input
           type="range"
-          className="w-full h-6"
+          className="w-full h-4"
           min="3.3"
           max="12.5"
           step="0.1"
@@ -128,23 +128,23 @@ const AcftCalcc = () => {
         />
         <input
           type="number"
-          className="w-full p-2 border rounded mt-2"
+          className="w-full p-1 border rounded mt-1"
           value={powerThrow}
           onChange={(e) => setPowerThrow(handleNegativeCheck(Number(e.target.value), 3.3))}
           min="3.3"
           max="12.5"
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           <div>{powerThrow} m</div>
           <div>{powerThrowScore} points</div>
         </div>
       </div>
-
-      <div className="mb-4">
+  
+      <div className="mb-2">
         <label className="block font-medium">Hand-Release Push-Ups (reps)</label>
         <input
           type="range"
-          className="w-full h-6"
+          className="w-full h-4"
           min="0"
           max="100"
           step="1"
@@ -153,25 +153,25 @@ const AcftCalcc = () => {
         />
         <input
           type="number"
-          className="w-full p-2 border rounded mt-2"
+          className="w-full p-1 border rounded mt-1"
           value={pushUps}
           onChange={(e) => setPushUps(handleNegativeCheck(Number(e.target.value), 0))}
           min="0"
           max="100"
         />
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           <div>{pushUps} reps</div>
           <div>{pushUpsScore} points</div>
         </div>
       </div>
-
-      <div className="mb-4">
+  
+      <div className="mb-2">
         <label className="block font-medium">Sprint Drag Carry (m:s)</label>
         <input
           type="range"
-          className="w-full h-6"
+          className="w-full h-4"
           min="0"
-          max="201" // total seconds from 4m 48s to 1m 27s
+          max="201"
           step="1"
           value={4 * 60 + 48 - (sprintDragCarry.minutes * 60 + sprintDragCarry.seconds)}
           onChange={(e) => {
@@ -182,11 +182,11 @@ const AcftCalcc = () => {
             setSprintDragCarry({ minutes, seconds });
           }}
         />
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between mt-1 text-sm">
           <div>
             <input
               type="number"
-              className="w-16 p-2 border rounded"
+              className="w-12 p-1 border rounded"
               value={sprintDragCarry.minutes}
               onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
               min="0"
@@ -197,7 +197,7 @@ const AcftCalcc = () => {
           <div>
             <input
               type="number"
-              className="w-16 p-2 border rounded"
+              className="w-12 p-1 border rounded"
               value={sprintDragCarry.seconds}
               onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
               min="0"
@@ -208,14 +208,14 @@ const AcftCalcc = () => {
           <div className="font-semibold">{sprintDragCarryScore} points</div>
         </div>
       </div>
-
-      <div className="mb-4">
+  
+      <div className="mb-2">
         <label className="block font-medium">Plank (m:s)</label>
         <input
           type="range"
-          className="w-full h-6"
+          className="w-full h-4"
           min="0"
-          max="200" // 3 min 20 sec in total seconds
+          max="200"
           step="1"
           value={plank.minutes * 60 + plank.seconds}
           onChange={(e) => {
@@ -225,11 +225,11 @@ const AcftCalcc = () => {
             setPlank({ minutes, seconds });
           }}
         />
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between mt-1 text-sm">
           <div>
             <input
               type="number"
-              className="w-16 p-2 border rounded"
+              className="w-12 p-1 border rounded"
               value={plank.minutes}
               onChange={(e) => setPlank({ ...plank, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
               min="0"
@@ -240,7 +240,7 @@ const AcftCalcc = () => {
           <div>
             <input
               type="number"
-              className="w-16 p-2 border rounded"
+              className="w-12 p-1 border rounded"
               value={plank.seconds}
               onChange={(e) => setPlank({ ...plank, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
               min="0"
@@ -251,56 +251,55 @@ const AcftCalcc = () => {
           <div className="font-semibold">{plankScore} points</div>
         </div>
       </div>
-
-       <div className="mb-4">
-      <label className="block font-medium">2 Mile Run (m:s)</label>
-      <input
-        type="range"
-        className="w-full h-6"
-        min="0"
-        max={(27 * 60) - (13 * 60 + 22)} // Difference in seconds between 27m 0s and 13m 22s
-        step="1"
-        value={27 * 60 - (run.minutes * 60 + run.seconds)} // Invert the range value
-        onChange={handleSliderChange}
-      />
-      <div className="flex justify-between mt-2">
-        <div>
-          <input
-            type="number"
-            className="w-16 p-2 border rounded"
-            value={run.minutes}
-            onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
-            min="13"
-            max="27"
-          />
-          <span>m</span>
+  
+      <div className="mb-2">
+        <label className="block font-medium">2 Mile Run (m:s)</label>
+        <input
+          type="range"
+          className="w-full h-4"
+          min="0"
+          max={(27 * 60) - (13 * 60 + 22)}
+          step="1"
+          value={27 * 60 - (run.minutes * 60 + run.seconds)}
+          onChange={handleSliderChange}
+        />
+        <div className="flex justify-between mt-1 text-sm">
+          <div>
+            <input
+              type="number"
+              className="w-12 p-1 border rounded"
+              value={run.minutes}
+              onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 13) })}
+              min="13"
+              max="27"
+            />
+            <span>m</span>
+          </div>
+          <div>
+            <input
+              type="number"
+              className="w-12 p-1 border rounded"
+              value={run.seconds}
+              onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
+              min="0"
+              max="59"
+            />
+            <span>s</span>
+          </div>
+          <div>{runScore} points</div>
         </div>
-        <div>
-          <input
-            type="number"
-            className="w-16 p-2 border rounded"
-            value={run.seconds}
-            onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
-            min="0"
-            max="59"
-          />
-          <span>s</span>
-        </div>
-        <div>{runScore} points</div>
       </div>
-    </div>
-
-      <div className="font-bold mt-4">Total Score: {totalScore}</div>
-      <div
-        className={`font-medium ${meetsMinimumStandard ? "text-green-500" : "text-red-500"}`}
-      >
+  
+      <div className="font-bold mt-2">Total Score: {totalScore}</div>
+      <div className={`font-medium text-sm ${meetsMinimumStandard ? "text-green-500" : "text-red-500"}`}>
         Results: {meetsMinimumStandard ? "Meets Army minimum standard" : "Does not meet Army minimum standard"}
       </div>
-      <div className="font-medium">
+      <div className="font-medium text-sm">
         {meetsExemptionCriteria ? "Exempt from body fat circumference-based tape assessment" : ""}
       </div>
     </div>
   );
+  
 };
 
 export default AcftCalcc;
