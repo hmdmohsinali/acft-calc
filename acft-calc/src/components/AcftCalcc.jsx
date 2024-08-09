@@ -67,8 +67,9 @@ const AcftCalcc = () => {
       <h2 className="text-lg font-bold mb-2 text-center">ACFT Score Calculator</h2>
   
       <div className="mb-2">
-        <label className="block font-medium">Gender</label>
+        <label htmlFor="gender" className="block font-medium">Gender</label>
         <select
+          id="gender"
           className="w-full p-1 border rounded"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
@@ -80,8 +81,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Age</label>
+        <label htmlFor="age" className="block font-medium">Age</label>
         <input
+          id="age"
           type="number"
           className="w-full p-1 border rounded"
           value={ageDisplay}
@@ -91,8 +93,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Maximum Deadlift (lbs.)</label>
+        <label htmlFor="deadlift" className="block font-medium">Maximum Deadlift (lbs.)</label>
         <input
+          id="deadlift"
           type="range"
           className="w-full h-4"
           min="60"
@@ -116,8 +119,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Standing Power Throw (m)</label>
+        <label htmlFor="powerThrow" className="block font-medium">Standing Power Throw (m)</label>
         <input
+          id="powerThrow"
           type="range"
           className="w-full h-4"
           min="3.3"
@@ -141,8 +145,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Hand-Release Push-Ups (reps)</label>
+        <label htmlFor="pushUps" className="block font-medium">Hand-Release Push-Ups (reps)</label>
         <input
+          id="pushUps"
           type="range"
           className="w-full h-4"
           min="0"
@@ -166,8 +171,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Sprint Drag Carry (m:s)</label>
+        <label htmlFor="sprintDragCarry" className="block font-medium">Sprint Drag Carry (m:s)</label>
         <input
+          id="sprintDragCarry"
           type="range"
           className="w-full h-4"
           min="0"
@@ -210,8 +216,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">Plank (m:s)</label>
+        <label htmlFor="plank" className="block font-medium">Plank (m:s)</label>
         <input
+          id="plank"
           type="range"
           className="w-full h-4"
           min="0"
@@ -253,8 +260,9 @@ const AcftCalcc = () => {
       </div>
   
       <div className="mb-2">
-        <label className="block font-medium">2 Mile Run (m:s)</label>
+        <label htmlFor="run" className="block font-medium">2 Mile Run (m:s)</label>
         <input
+          id="run"
           type="range"
           className="w-full h-4"
           min="0"
@@ -299,6 +307,7 @@ const AcftCalcc = () => {
       </div>
     </div>
   );
+  
   
 };
 
