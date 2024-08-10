@@ -63,7 +63,7 @@ const AcftCalcc = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 p-1 flex flex-col justify-center items-center overflow-hidden">
+    <div className=" flex flex-col justify-center items-center overflow-hidden">
       <h2 className="text-md font-bold mb-1 text-center">ACFT Score Calculator</h2>
   
       <div className="bg-white p-3 rounded-lg shadow-md w-full max-w-md">
