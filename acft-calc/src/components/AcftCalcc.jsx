@@ -63,15 +63,15 @@ const AcftCalcc = () => {
   };
 
   return (
-    <div className=" flex flex-col justify-center items-center overflow-hidden">
-      <h2 className="text-md font-bold mb-1 text-center">ACFT Score Calculator</h2>
+    <div className="min-h-screen bg-gray-200 p-0.5 flex flex-col justify-center items-center overflow-hidden">
+      <h2 className="text-xs font-bold mb-0.5 text-center">ACFT Score Calculator</h2>
   
-      <div className="bg-white p-3 rounded-lg shadow-md w-full max-w-md">
-        <div className="mb-1">
-          <label htmlFor="gender" className="block font-medium text-sm">Gender</label>
+      <div className="bg-white p-1.5 rounded-lg shadow-md w-full max-w-xs">
+        <div className="mb-0.5">
+          <label htmlFor="gender" className="block font-medium text-xs">Gender</label>
           <select
             id="gender"
-            className="w-full p-1 border rounded text-sm"
+            className="w-full p-0.5 border rounded text-xs"
             value={gender}
             onChange={(e) => setGender(e.target.value)}
           >
@@ -81,99 +81,99 @@ const AcftCalcc = () => {
           </select>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="age" className="block font-medium text-sm">Age</label>
+        <div className="mb-0.5">
+          <label htmlFor="age" className="block font-medium text-xs">Age</label>
           <input
             id="age"
             type="number"
-            className="w-full p-1 border rounded text-sm"
+            className="w-full p-0.5 border rounded text-xs"
             value={ageDisplay}
             onChange={(e) => handleAgeChange(e.target.value)}
             min="0"
           />
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="deadlift" className="block font-medium text-sm">Maximum Deadlift (lbs.)</label>
+        <div className="mb-0.5">
+          <label htmlFor="deadlift" className="block font-medium text-xs">Maximum Deadlift (lbs.)</label>
           <input
             id="deadlift"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="60"
             max="340"
             step="10"
             value={deadlift}
             onChange={(e) => setDeadlift(Number(e.target.value))}
           />
-          <div className="flex justify-between items-center mt-1 text-sm">
+          <div className="flex justify-between items-center mt-0.5 text-xs">
             <input
               type="number"
-              className="w-2/3 p-1 border rounded text-sm"
+              className="w-1/2 p-0.5 border rounded text-xs"
               value={deadlift}
               onChange={(e) => setDeadlift(handleNegativeCheck(Number(e.target.value), 60))}
               min="60"
               max="340"
             />
-            <div className="ml-2 font-semibold">{deadliftScore} points</div>
+            <div className="ml-1 font-semibold text-xs">{deadliftScore} points</div>
           </div>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="powerThrow" className="block font-medium text-sm">Standing Power Throw (m)</label>
+        <div className="mb-0.5">
+          <label htmlFor="powerThrow" className="block font-medium text-xs">Standing Power Throw (m)</label>
           <input
             id="powerThrow"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="3.3"
             max="12.5"
             step="0.1"
             value={powerThrow}
             onChange={(e) => setPowerThrow(Number(e.target.value))}
           />
-          <div className="flex justify-between items-center mt-1 text-sm">
+          <div className="flex justify-between items-center mt-0.5 text-xs">
             <input
               type="number"
-              className="w-2/3 p-1 border rounded text-sm"
+              className="w-1/2 p-0.5 border rounded text-xs"
               value={powerThrow}
               onChange={(e) => setPowerThrow(handleNegativeCheck(Number(e.target.value), 3.3))}
               min="3.3"
               max="12.5"
             />
-            <div className="ml-2 font-semibold">{powerThrowScore} points</div>
+            <div className="ml-1 font-semibold text-xs">{powerThrowScore} points</div>
           </div>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="pushUps" className="block font-medium text-sm">Hand-Release Push-Ups (reps)</label>
+        <div className="mb-0.5">
+          <label htmlFor="pushUps" className="block font-medium text-xs">Hand-Release Push-Ups (reps)</label>
           <input
             id="pushUps"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="0"
             max="100"
             step="1"
             value={pushUps}
             onChange={(e) => setPushUps(Number(e.target.value))}
           />
-          <div className="flex justify-between items-center mt-1 text-sm">
+          <div className="flex justify-between items-center mt-0.5 text-xs">
             <input
               type="number"
-              className="w-2/3 p-1 border rounded text-sm"
+              className="w-1/2 p-0.5 border rounded text-xs"
               value={pushUps}
               onChange={(e) => setPushUps(handleNegativeCheck(Number(e.target.value), 0))}
               min="0"
               max="100"
             />
-            <div className="ml-2 font-semibold">{pushUpsScore} points</div>
+            <div className="ml-1 font-semibold text-xs">{pushUpsScore} points</div>
           </div>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="sprintDragCarry" className="block font-medium text-sm">Sprint Drag Carry (m:s)</label>
+        <div className="mb-0.5">
+          <label htmlFor="sprintDragCarry" className="block font-medium text-xs">Sprint Drag Carry (m:s)</label>
           <input
             id="sprintDragCarry"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="0"
             max="201"
             step="1"
@@ -186,11 +186,11 @@ const AcftCalcc = () => {
               setSprintDragCarry({ minutes, seconds });
             }}
           />
-          <div className="flex justify-between mt-1 text-sm">
+          <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={sprintDragCarry.minutes}
                 onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -201,7 +201,7 @@ const AcftCalcc = () => {
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={sprintDragCarry.seconds}
                 onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -209,16 +209,16 @@ const AcftCalcc = () => {
               />
               <span>s</span>
             </div>
-            <div className="font-semibold">{sprintDragCarryScore} points</div>
+            <div className="font-semibold text-xs">{sprintDragCarryScore} points</div>
           </div>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="plank" className="block font-medium text-sm">Plank (m:s)</label>
+        <div className="mb-0.5">
+          <label htmlFor="plank" className="block font-medium text-xs">Plank (m:s)</label>
           <input
             id="plank"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="0"
             max="200"
             step="1"
@@ -230,11 +230,11 @@ const AcftCalcc = () => {
               setPlank({ minutes, seconds });
             }}
           />
-          <div className="flex justify-between mt-1 text-sm">
+          <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={plank.minutes}
                 onChange={(e) => setPlank({ ...plank, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -245,7 +245,7 @@ const AcftCalcc = () => {
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={plank.seconds}
                 onChange={(e) => setPlank({ ...plank, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -253,27 +253,27 @@ const AcftCalcc = () => {
               />
               <span>s</span>
             </div>
-            <div className="font-semibold">{plankScore} points</div>
+            <div className="font-semibold text-xs">{plankScore} points</div>
           </div>
         </div>
   
-        <div className="mb-1">
-          <label htmlFor="run" className="block font-medium text-sm">2 Mile Run (m:s)</label>
+        <div className="mb-0.5">
+          <label htmlFor="run" className="block font-medium text-xs">2 Mile Run (m:s)</label>
           <input
             id="run"
             type="range"
-            className="w-full h-3"
+            className="w-full h-2"
             min="0"
             max={(27 * 60) - (13 * 60 + 22)}
             step="1"
             value={27 * 60 - (run.minutes * 60 + run.seconds)}
             onChange={handleSliderChange}
           />
-          <div className="flex justify-between mt-1 text-sm">
+          <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={run.minutes}
                 onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 13) })}
                 min="13"
@@ -284,7 +284,7 @@ const AcftCalcc = () => {
             <div className="flex">
               <input
                 type="number"
-                className="w-10 p-1 border rounded text-sm"
+                className="w-8 p-0.5 border rounded text-xs"
                 value={run.seconds}
                 onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -292,11 +292,11 @@ const AcftCalcc = () => {
               />
               <span>s</span>
             </div>
-            <div className="font-semibold">{runScore} points</div>
+            <div className="font-semibold text-xs">{runScore} points</div>
           </div>
         </div>
   
-        <div className="font-bold mt-2 text-sm">Total Score: {totalScore}</div>
+        <div className="font-bold mt-1 text-xs">Total Score: {totalScore}</div>
         <div className={`font-medium text-xs ${meetsMinimumStandard ? "text-green-500" : "text-red-500"}`}>
           Results: {meetsMinimumStandard ? "Meets Army minimum standard" : "Does not meet Army minimum standard"}
         </div>
@@ -306,6 +306,7 @@ const AcftCalcc = () => {
       </div>
     </div>
   );
+  
   
   
   
