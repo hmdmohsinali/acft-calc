@@ -63,10 +63,10 @@ const AcftCalcc = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 p-0.5 flex flex-col justify-center items-center overflow-hidden">
+    <div className="min-h-screen bg-white p-0.5 flex flex-col justify-center items-center overflow-hidden">
       <h2 className="text-xs font-bold mb-0.5 text-center">ACFT Score Calculator</h2>
   
-      <div className="bg-white p-1.5 rounded-lg shadow-md w-full max-w-xs">
+      <div className="bg-white p-1.5 rounded-lg w-full max-w-xs">
         <div className="mb-0.5">
           <label htmlFor="gender" className="block font-medium text-xs">Gender</label>
           <select
