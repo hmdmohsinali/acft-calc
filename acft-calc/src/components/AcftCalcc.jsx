@@ -189,8 +189,8 @@ const AcftCalcc = () => {
           <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={sprintDragCarry.minutes}
                 onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -200,8 +200,8 @@ const AcftCalcc = () => {
             </div>
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={sprintDragCarry.seconds}
                 onChange={(e) => setSprintDragCarry({ ...sprintDragCarry, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -233,8 +233,8 @@ const AcftCalcc = () => {
           <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={plank.minutes}
                 onChange={(e) => setPlank({ ...plank, minutes: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -244,8 +244,8 @@ const AcftCalcc = () => {
             </div>
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={plank.seconds}
                 onChange={(e) => setPlank({ ...plank, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
@@ -272,8 +272,8 @@ const AcftCalcc = () => {
           <div className="flex justify-between mt-0.5 text-xs">
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={run.minutes}
                 onChange={(e) => setRun({ ...run, minutes: handleNegativeCheck(Number(e.target.value), 13) })}
                 min="13"
@@ -283,8 +283,8 @@ const AcftCalcc = () => {
             </div>
             <div className="flex">
               <input
-                type="number"
-                className="w-8 p-0.5 border rounded text-xs"
+                type="text"
+                className="w-10 p-1 border rounded text-xs"
                 value={run.seconds}
                 onChange={(e) => setRun({ ...run, seconds: handleNegativeCheck(Number(e.target.value), 0) })}
                 min="0"
